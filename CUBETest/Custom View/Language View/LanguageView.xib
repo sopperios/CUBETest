@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageView">
+            <connections>
+                <outlet property="tableView" destination="RlH-pg-lwd" id="B6j-3t-Hhp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="LanguageView" id="lpc-eT-pvB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="512"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請選擇語言" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-b4-6Sh">
+                    <rect key="frame" x="12" y="11.999999999999998" width="369" height="25.333333333333329"/>
+                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RlH-pg-lwd">
+                    <rect key="frame" x="0.0" y="49.333333333333343" width="393" height="404.33333333333326"/>
+                </tableView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gpP-48-5cT">
+                    <rect key="frame" x="255.66666666666666" y="465.66666666666669" width="125.33333333333329" height="34.333333333333314"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY9-gt-HAg">
+                            <rect key="frame" x="0.0" y="0.0" width="58.666666666666664" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="取消">
+                                <color key="baseForegroundColor" systemColor="systemGrayColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="cancel:" destination="-1" eventType="touchUpInside" id="o5f-yn-JYb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY6-lS-vXV">
+                            <rect key="frame" x="66.666666666666657" y="0.0" width="58.666666666666657" height="34.333333333333336"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="確定"/>
+                            <connections>
+                                <action selector="confirm:" destination="-1" eventType="touchUpInside" id="YmZ-6R-435"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="aAO-9N-x4s"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="gh4-b4-6Sh" firstAttribute="leading" secondItem="lpc-eT-pvB" secondAttribute="leading" constant="12" id="6oD-FK-9rL"/>
+                <constraint firstItem="aAO-9N-x4s" firstAttribute="trailing" secondItem="RlH-pg-lwd" secondAttribute="trailing" id="N2C-JS-Jny"/>
+                <constraint firstItem="RlH-pg-lwd" firstAttribute="leading" secondItem="aAO-9N-x4s" secondAttribute="leading" id="Ts5-PW-E0p"/>
+                <constraint firstItem="RlH-pg-lwd" firstAttribute="top" secondItem="gh4-b4-6Sh" secondAttribute="bottom" constant="12" id="ek0-ra-Gjj"/>
+                <constraint firstAttribute="bottom" secondItem="gpP-48-5cT" secondAttribute="bottom" constant="12" id="eoz-aF-5r1"/>
+                <constraint firstItem="gpP-48-5cT" firstAttribute="top" secondItem="RlH-pg-lwd" secondAttribute="bottom" constant="12" id="fRl-Xu-Wmf"/>
+                <constraint firstItem="gh4-b4-6Sh" firstAttribute="top" secondItem="lpc-eT-pvB" secondAttribute="top" constant="12" id="iA4-g4-hdZ"/>
+                <constraint firstAttribute="trailing" secondItem="gh4-b4-6Sh" secondAttribute="trailing" constant="12" id="lLF-dU-pI7"/>
+                <constraint firstItem="gpP-48-5cT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aAO-9N-x4s" secondAttribute="leading" constant="12" id="pjM-wZ-gL1"/>
+                <constraint firstItem="aAO-9N-x4s" firstAttribute="trailing" secondItem="gpP-48-5cT" secondAttribute="trailing" constant="12" id="xZD-3q-Ttv"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="220.61068702290075" y="177.46478873239437"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="HomeTableViewAttractionsCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeTableViewAttractionsCell" rowHeight="149" id="KGk-i7-Jjw" customClass="HomeTableViewAttractionsCell" customModule="CUBETest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RBX-9w-7Ck">
+                        <rect key="frame" x="12" y="9.6666666666666714" width="125" height="127.00000000000001"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="125" id="Hfq-j5-5wW"/>
+                            <constraint firstAttribute="width" secondItem="RBX-9w-7Ck" secondAttribute="height" id="fED-Zh-uQn"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="ire-e3-MI1">
+                        <rect key="frame" x="149" y="12" width="126.66666666666669" height="125"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT7-KH-ON7">
+                                <rect key="frame" x="0.0" y="0.0" width="126.66666666666667" height="25.333333333333332"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" text="subTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOV-8U-csT">
+                                <rect key="frame" x="0.0" y="34.333333333333336" width="126.66666666666667" height="19.666666666666664"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGm-c3-DAI">
+                                <rect key="frame" x="0.0" y="63" width="126.66666666666667" height="62"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                <color key="textColor" systemColor="systemGray3Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icInfoBackDeepGray" translatesAutoresizingMaskIntoConstraints="NO" id="umU-k2-Af6">
+                        <rect key="frame" x="287.66666666666669" y="64.333333333333329" width="20.333333333333314" height="20.333333333333329"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="umU-k2-Af6" secondAttribute="height" id="0xf-2j-F4y"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="umU-k2-Af6" firstAttribute="leading" secondItem="ire-e3-MI1" secondAttribute="trailing" constant="12" id="8fH-be-gvM"/>
+                    <constraint firstItem="RBX-9w-7Ck" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Azl-An-PdO"/>
+                    <constraint firstItem="ire-e3-MI1" firstAttribute="leading" secondItem="RBX-9w-7Ck" secondAttribute="trailing" constant="12" id="GwU-hg-qka"/>
+                    <constraint firstAttribute="bottom" secondItem="ire-e3-MI1" secondAttribute="bottom" constant="12" id="RTl-lt-IPz"/>
+                    <constraint firstAttribute="bottom" secondItem="RBX-9w-7Ck" secondAttribute="bottom" constant="12" id="cpp-BB-GTB"/>
+                    <constraint firstAttribute="trailing" secondItem="umU-k2-Af6" secondAttribute="trailing" constant="12" id="n8Z-mT-IWs"/>
+                    <constraint firstItem="RBX-9w-7Ck" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="tLR-fE-H6q"/>
+                    <constraint firstItem="ire-e3-MI1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="ynL-zY-oqL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="umU-k2-Af6" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="Bf9-bs-kx6"/>
+                <constraint firstItem="umU-k2-Af6" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="24:375" id="nIK-07-DDj"/>
+            </constraints>
+            <connections>
+                <outlet property="attractionImageView" destination="RBX-9w-7Ck" id="8T9-Ue-ule"/>
+                <outlet property="content" destination="MGm-c3-DAI" id="zxp-lm-Qpq"/>
+                <outlet property="subTitle" destination="rOV-8U-csT" id="baf-2I-2iq"/>
+                <outlet property="title" destination="KT7-KH-ON7" id="Sa1-9B-zst"/>
+            </connections>
+            <point key="canvasLocation" x="167.93893129770993" y="12.323943661971832"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icInfoBackDeepGray" width="18" height="18"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
