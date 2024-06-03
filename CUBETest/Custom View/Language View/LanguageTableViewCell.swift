@@ -38,9 +38,9 @@ class LanguageTableViewCell: UITableViewCell {
         self.language = language
         self.titleLabel.text = language.text
         if language.isSelected {
-            self.itemView.backgroundColor = UIColor.lightGray
+            self.itemView.backgroundColor = UIColor.languargeViewCellSelectedMode
         } else {
-            self.itemView.backgroundColor = UIColor.white
+            self.itemView.backgroundColor = UIColor.languargeViewCellMode
         }
     }
     

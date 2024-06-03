@@ -22,6 +22,7 @@ class HomeViewModel {
                 self.attractions = attractions.data
                 print(self.attractions)
             case .failure(let error):
+                self.attractions = []
                 completion(error)
                 print("Error fetching users: \(error)")
             }
@@ -36,6 +37,7 @@ class HomeViewModel {
                 self.news = news.data
                 print(self.news)
             case .failure(let error):
+                self.news = []
                 completion(error)
                 print("Error fetching users: \(error)")
             }

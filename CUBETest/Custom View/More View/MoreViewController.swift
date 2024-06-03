@@ -29,9 +29,11 @@ class MoreViewController: UIViewController {
     func setValue<T>(object: T) {
         if let news = object as? [New] {
             self.news = news
+            self.navigationItem.title = "最新消息"
         }
         if let attractions = object as? [Attraction] {
             self.attractions = attractions
+            self.navigationItem.title = "遊憩景點"
         }
     }
     

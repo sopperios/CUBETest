@@ -129,6 +129,15 @@
 			path = "More View";
 			sourceTree = "<group>";
 		};
+		8445054A2C0D8484008EB7AE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				84C574342C0B3210006A5EB8 /* Attractions */,
+				84C574172C0AAA91006A5EB8 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		84C573DB2C0AA732006A5EB8 = {
 			isa = PBXGroup;
 			children = (
@@ -153,11 +162,10 @@
 		84C573E62C0AA732006A5EB8 /* CUBETest */ = {
 			isa = PBXGroup;
 			children = (
-				84C574342C0B3210006A5EB8 /* Attractions */,
+				8445054A2C0D8484008EB7AE /* Main */,
 				84C5742F2C0AB780006A5EB8 /* Singleton */,
 				84C5742E2C0AB75F006A5EB8 /* Service */,
 				84C574272C0AB243006A5EB8 /* Custom View */,
-				84C574172C0AAA91006A5EB8 /* Home */,
 				84C573E72C0AA732006A5EB8 /* AppDelegate.swift */,
 				84C573E92C0AA732006A5EB8 /* SceneDelegate.swift */,
 				84C573EB2C0AA732006A5EB8 /* ViewController.swift */,

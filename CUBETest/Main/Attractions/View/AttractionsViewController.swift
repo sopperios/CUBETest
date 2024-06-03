@@ -10,6 +10,10 @@ import GoogleMaps
 
 class AttractionsViewController: UIViewController {
     
+    @IBOutlet weak var attractionImageViewHegihtConstraintMultiplier50: NSLayoutConstraint!
+    @IBOutlet weak var googleMapHegithConstraintMultiplier50: NSLayoutConstraint!
+    @IBOutlet weak var attractionImageViewHegihtConstraintMultiplier90: NSLayoutConstraint!
+    @IBOutlet weak var googleMapHegithConstraintMultiplier90: NSLayoutConstraint!
     @IBOutlet weak var googleMapView: UIView!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var webSite: UILabel!
@@ -19,18 +23,46 @@ class AttractionsViewController: UIViewController {
     @IBOutlet weak var attractionImageView: UIImageView!
     @IBOutlet weak var imagePageLable: UILabel!
     @IBOutlet weak var pageControl: UIPageControl!
+    
     private var images: [UIImage] = []
     private var attraction: Attraction?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     func setAttraction(attraction: Attraction) {
         self.attraction = attraction
     }
     
+    @objc private func didChangeOrientation() {
+        switch UIDevice.current.orientation {
+        case .portrait:
+            self.attractionImageViewHegihtConstraintMultiplier90.priority = UILayoutPriority(997)
+            self.googleMapHegithConstraintMultiplier90.priority = UILayoutPriority(997)
+            self.attractionImageViewHegihtConstraintMultiplier50.priority = UILayoutPriority(998)
+            self.googleMapHegithConstraintMultiplier50.priority = UILayoutPriority(998)
+        case .landscapeLeft, .landscapeRight:
+            self.attractionImageViewHegihtConstraintMultiplier90.priority = UILayoutPriority(998)
+            self.googleMapHegithConstraintMultiplier90.priority = UILayoutPriority(998)
+            self.attractionImageViewHegihtConstraintMultiplier50.priority = UILayoutPriority(997)
+            self.googleMapHegithConstraintMultiplier50.priority = UILayoutPriority(997)
+        default:
+            print("Other")
+        }
+    }
+    
     private func setView() {
+        self.didChangeOrientation()
+        NotificationCenter.default.addObserver(self, selector: #selector(didChangeOrientation), name: UIDevice.orientationDidChangeNotification, object: nil)
+        let webSiteTapGesture = UITapGestureRecognizer(target: self, action: #selector(webSiteTap(_:)))
+        self.webSite.addGestureRecognizer(webSiteTapGesture)
+        self.webSite.isUserInteractionEnabled = true
         guard let attraction = self.attraction else { return }
         self.attractionImageView.layer.cornerRadius = 6
         self.navigationItem.title = attraction.name
@@ -50,6 +82,11 @@ class AttractionsViewController: UIViewController {
             }
         }
         dispatchGroup.notify(queue: .main) {
+            if self.images.count > 0 {
+                self.pageControl.isHidden = false
+                self.imagePageLable.isHidden = false
+                self.attractionImageView.isHidden = false
+            }
             self.attractionImageView.image = self.images.first
             self.pageControl.numberOfPages = self.images.count
             self.setImagePageLable()
@@ -57,6 +94,7 @@ class AttractionsViewController: UIViewController {
         // 設定google 地圖
         let camera = GMSCameraPosition.camera(withLatitude: attraction.nlat, longitude: attraction.elong, zoom: 15.0)
         let mapView = GMSMapView(frame: self.googleMapView.bounds)
+        mapView.settings.scrollGestures = false
         mapView.camera = camera
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         let marker = GMSMarker()
@@ -67,11 +105,9 @@ class AttractionsViewController: UIViewController {
         mapView.layer.cornerRadius = 6
         self.googleMapView.addSubview(mapView)
         self.googleMapView.layer.cornerRadius = 6
-
-        
     }
     
-    func loadImage(from url: URL, completion: @escaping () -> Void) {
+    private func loadImage(from url: URL, completion: @escaping () -> Void) {
         let request = URLRequest(url: url)
         if let cachedResponse = URLCache.shared.cachedResponse(for: request) {
             if let image = UIImage(data: cachedResponse.data) {
@@ -97,8 +133,16 @@ class AttractionsViewController: UIViewController {
         task.resume()
     }
     
-    func setImagePageLable() {
+    private func setImagePageLable() {
         self.imagePageLable.text = "("+"\(self.pageControl.currentPage +  1)/\(self.pageControl.numberOfPages)"+")"
+    }
+    
+    @objc private func webSiteTap(_ sender: UITapGestureRecognizer) {
+        guard let view = sender.view, let attraction = self.attraction else { return }
+        let sb = UIStoryboard(name: "WebViewController", bundle: nil)
+        guard let webVC = sb.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else {return}
+        webVC.setTitleAndUrl(title: attraction.name, url: attraction.url)
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
     
     @IBAction func imageViewRightSwipe(_ sender: Any) {

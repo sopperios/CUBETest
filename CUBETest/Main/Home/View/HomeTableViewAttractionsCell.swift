@@ -9,6 +9,7 @@ import UIKit
 
 class HomeTableViewAttractionsCell: UITableViewCell {
     
+    @IBOutlet weak var imageMargin: UIView!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var title: UILabel!
@@ -25,11 +26,16 @@ class HomeTableViewAttractionsCell: UITableViewCell {
     }
     
     func setCell(attraction: Attraction) {
-        self.attractionImageView.image = nil
         self.title.text = attraction.name
         self.subTitle.text = attraction.name
         if let image = attraction.images.first, let url = URL(string:image.src) {
+            self.attractionImageView.isHidden = false
+            self.imageMargin.isHidden = false
             self.loadImage(from: url)
+        } else {
+            self.attractionImageView.isHidden = true
+            self.imageMargin.isHidden = true
+            self.attractionImageView.image = nil
         }
         self.content.text = attraction.introduction
         
